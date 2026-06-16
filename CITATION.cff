@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "ContextGuard-MCP-PQC: Post-Quantum Security Framework for MCP"
+version: 1.0.0
+date-released: 2026-06-16
+license: MIT
+repository-code: https://github.com/sunilgentyala/contextguard-mcp-pqc
+authors:
+  - family-names: Gentyala
+    given-names: Sunil
+    email: sunil.gentyala@ieee.org
+    affiliation: HCLTech, Dallas TX, USA
+    orcid: https://orcid.org/0009-0005-2642-3479
+  - family-names: Sai Prasad
+    given-names: A.V.H.
+    affiliation: CMR Technical Campus, Hyderabad, India
+  - family-names: Swathi
+    given-names: Kommana
+    affiliation: Sir C R Reddy College of Engineering, Eluru, India
+  - family-names: Lande
+    given-names: Vamshi
+    email: vamshilande@my.unt.edu
+    affiliation: University of North Texas, Denton TX, USA
+  - family-names: Kasturi
+    given-names: Akhila
+    email: kasturi.akhila@gmail.com
+    affiliation: HCLTech, USA
+preferred-citation:
+  type: conference-paper
+  title: "Post-Quantum Security Framework for Model Context Protocol Using ContextGuard"
+  authors:
+    - family-names: Gentyala
+      given-names: Sunil
+    - family-names: Sai Prasad
+      given-names: A.V.H.
+    - family-names: Swathi
+      given-names: Kommana
+    - family-names: Lande
+      given-names: Vamshi
+    - family-names: Kasturi
+      given-names: Akhila
+  collection-title: "Proceedings of the International Conference on Smart Computing and Systems Applications (ICSCSA) 2026"
+  year: 2026
