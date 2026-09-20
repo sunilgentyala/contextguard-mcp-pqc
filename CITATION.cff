@@ -10,14 +10,12 @@ authors:
   - family-names: Gentyala
     given-names: Sunil
     email: sunil.gentyala@ieee.org
-    affiliation: HCLTech, Dallas TX, USA
+    affiliation: Independent Researcher / HCLTech America Inc., Dallas TX, USA
     orcid: https://orcid.org/0009-0005-2642-3479
-  - family-names: Sai Prasad
-    given-names: A.V.H.
-    affiliation: CMR Technical Campus, Hyderabad, India
-  - family-names: Swathi
-    given-names: Kommana
-    affiliation: Sir C R Reddy College of Engineering, Eluru, India
+  - family-names: Krishna Sunil
+    given-names: P.
+    email: sunil.palvadi@gmail.com
+    affiliation: Narasaraopeta Engineering College, Narasaraopet, India
   - family-names: Lande
     given-names: Vamshi
     email: vamshilande@my.unt.edu
@@ -25,20 +23,31 @@ authors:
   - family-names: Kasturi
     given-names: Akhila
     email: kasturi.akhila@gmail.com
-    affiliation: HCLTech, USA
+    affiliation: HCLTech, Dallas TX, USA
+  - family-names: Darisi
+    given-names: Suresh Kumar
+    email: darisi.suresh@ieee.org
+    affiliation: Rocket Software Inc., Boston, USA
+  - family-names: Shaik
+    given-names: Ruhisulthana
+    email: ruhisulthana.shaik9@gmail.com
+    affiliation: Sir C.R. Reddy Polytechnic College, Eluru, India
 preferred-citation:
   type: conference-paper
   title: "Post-Quantum Security Framework for Model Context Protocol Using ContextGuard"
   authors:
     - family-names: Gentyala
       given-names: Sunil
-    - family-names: Sai Prasad
-      given-names: A.V.H.
-    - family-names: Swathi
-      given-names: Kommana
+    - family-names: Krishna Sunil
+      given-names: P.
     - family-names: Lande
       given-names: Vamshi
     - family-names: Kasturi
       given-names: Akhila
+    - family-names: Darisi
+      given-names: Suresh Kumar
+    - family-names: Shaik
+      given-names: Ruhisulthana
   collection-title: "Proceedings of the International Conference on Smart Computing and Systems Applications (ICSCSA) 2026"
+  notes: "Paper ICSCSA-011. Accepted; pending IEEE Xplore indexing."
   year: 2026

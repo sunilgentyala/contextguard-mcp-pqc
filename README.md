@@ -17,13 +17,14 @@ Implementation artifacts for the ICSCSA 2026 paper presenting the first systemat
 **Title:** Post-Quantum Security Framework for Model Context Protocol Using ContextGuard
 
 **Authors:**
-1. Sunil Gentyala -- HCLTech, Dallas TX, USA (IEEE Senior Member #101760715)
-2. A.V.H Sai Prasad -- CMR Technical Campus, Hyderabad, India
-3. Kommana Swathi -- Sir C R Reddy College of Engineering, Eluru, India
-4. Vamshi Lande -- Research Student, University of North Texas, Denton TX, USA
-5. Akhila Kasturi -- Research Analyst, HCLTech, USA
+1. Sunil Gentyala -- Independent Researcher, HCLTech America Inc., Dallas TX, USA (IEEE Senior Member #101760715)
+2. P. Krishna Sunil -- Assistant Professor, Dept. of MBA, Narasaraopeta Engineering College, Narasaraopet, India
+3. Vamshi Lande -- Research Student, University of North Texas, Denton TX, USA
+4. Akhila Kasturi -- Research Analyst Lead, HCLTech, Dallas TX, USA
+5. Suresh Kumar Darisi -- Senior Systems Engineer, Rocket Software Inc., Boston, USA
+6. Ruhisulthana Shaik -- Lecturer, Dept. of ECE, Sir C.R. Reddy Polytechnic College, Eluru, India
 
-**Conference:** International Conference on Smart Computing and Systems Applications (ICSCSA) 2026
+**Conference:** International Conference on Smart Computing and Systems Applications (ICSCSA) 2026 (Aug 19-21, 2026) -- accepted, paper ICSCSA-011. Pending IEEE Xplore indexing.
 
 ---
 
@@ -145,11 +146,12 @@ Issues and pull requests are welcome — new vulnerability classes, live benchma
 ```bibtex
 @inproceedings{gentyala2026contextguard_pqc,
   title     = {Post-Quantum Security Framework for Model Context Protocol Using ContextGuard},
-  author    = {Gentyala, Sunil and Sai Prasad, A.V.H. and Swathi, Kommana
-               and Lande, Vamshi and Kasturi, Akhila},
+  author    = {Gentyala, Sunil and Krishna Sunil, P. and Lande, Vamshi
+               and Kasturi, Akhila and Darisi, Suresh Kumar and Shaik, Ruhisulthana},
   booktitle = {Proceedings of the International Conference on Smart Computing
                and Systems Applications (ICSCSA)},
   year      = {2026},
+  note      = {Paper ICSCSA-011. Accepted; pending IEEE Xplore indexing.},
   url       = {https://github.com/sunilgentyala/contextguard-mcp-pqc}
 }
 ```

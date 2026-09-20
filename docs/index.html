@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContextGuard-MCP-PQC | Post-Quantum Security for MCP</title>
+<meta name="description" content="ContextGuard-MCP-PQC is an open-source post-quantum security governance framework for the Model Context Protocol (MCP), presented at IEEE ICSCSA 2026, mapping RFC 9794 PQ/T hybrid constructs to MCP's four security-relevant layers.">
+<style>
+  :root {
+    --bg: #0a0e13;
+    --bg-alt: #10151c;
+    --card: #141a22;
+    --border: #232b35;
+    --text: #e6edf3;
+    --muted: #98a5b3;
+    --accent: #7ea6ff;
+    --accent-2: #c792ff;
+    --warn: #f0b429;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero {
+    padding: 80px 0 52px;
+    background: radial-gradient(circle at 15% 15%, rgba(126,166,255,0.14), transparent 45%),
+                radial-gradient(circle at 85% 0%, rgba(199,146,255,0.12), transparent 42%);
+    border-bottom: 1px solid var(--border);
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(126,166,255,0.4);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  h1 { font-size: 2.4rem; margin: 0 0 14px; line-height: 1.2; }
+  h1 span { color: var(--accent); }
+  .lede { font-size: 1.1rem; color: var(--muted); max-width: 700px; margin: 0 0 28px; }
+
+  .status-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(240,180,41,0.08);
+    border: 1px solid rgba(240,180,41,0.35);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    color: #f0c869;
+    max-width: 700px;
+    margin-bottom: 28px;
+  }
+
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; }
+  .btn-primary { background: var(--accent); color: #071021; }
+  .btn-primary:hover { background: #9bbaff; text-decoration: none; }
+  .btn-secondary { border: 1px solid var(--border); color: var(--text); }
+  .btn-secondary:hover { border-color: var(--accent); text-decoration: none; }
+
+  section { padding: 52px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-size: 1.5rem; margin: 0 0 10px; }
+  .section-sub { color: var(--muted); margin: 0 0 26px; max-width: 680px; }
+
+  .abstract-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 26px;
+    font-size: 0.98rem;
+    color: var(--text);
+  }
+  .abstract-box .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--accent-2); }
+  .card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+  .card .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    background: rgba(126,166,255,0.12);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+
+  .authors { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  .author-chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+  .author-chip .name { font-weight: 600; color: var(--text); }
+  .author-chip .affil { color: var(--muted); display: block; font-size: 0.8rem; margin-top: 2px; }
+
+  pre {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  code { font-family: "SF Mono", Consolas, Monaco, monospace; }
+
+  footer { padding: 36px 0 60px; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">IEEE ICSCSA 2026 &middot; Paper ICSCSA-011</span>
+    <h1>ContextGuard-<span>MCP-PQC</span></h1>
+    <p class="lede">Post-Quantum Security Framework for Model Context Protocol Using ContextGuard &mdash; the first systematic application of RFC&nbsp;9794 PQ/T hybrid terminology to MCP's four security-relevant layers.</p>
+
+    <div class="status-banner">
+      &#9888;&#65039; Accepted at ICSCSA 2026 (Aug 19&ndash;21, 2026). Pending IEEE Xplore indexing &mdash; DOI and formal citation will be added here once published.
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://github.com/sunilgentyala/contextguard-mcp-pqc">View on GitHub</a>
+      <a class="btn btn-secondary" href="#citation">Citation</a>
+      <a class="btn btn-secondary" href="#framework">Framework</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Abstract</h2>
+    <p class="section-sub">Reproduced from the accepted manuscript. The full paper text is not hosted in this repository or on this site &mdash; only the abstract and citation are published pre-indexing, per IEEE prior-publication policy.</p>
+    <div class="abstract-box">
+      <span class="label">Abstract</span>
+      The proliferation of Model Context Protocol (MCP) as the operative authentication and tool invocation fabric for enterprise agentic AI systems has introduced a cryptographic trust surface that remains unexamined through the post-quantum security lens. This paper presents the first systematic application of RFC 9794's Post-Quantum/Traditional (PQ/T) hybrid terminology standard to MCP's four security-relevant layers: host authentication, transport channel confidentiality, server and tool identity certification, and tool result integrity. Three novel vulnerability classes are identified: MCP transport channels contain no normative reference to hybrid Key Encapsulation Mechanism design; MCP server identity relies exclusively on single-algorithm X.509 certificates, exposing tool authentication to harvest-now-decrypt-later (HNDL) adversaries; and tool result signing uses traditional digital signatures with no PQ/T hybrid equivalent. The ContextGuard-MCP-PQC governance framework is proposed as the structured response: a four-layer control architecture aligned to NIST CSF&nbsp;2.0 and COBIT&nbsp;2019, providing enterprise practitioners with a phased PQC migration roadmap.
+      <br><br>
+      <span class="label">Index Terms</span>
+      post-quantum cryptography, Model Context Protocol, RFC 9794, hybrid key encapsulation, agentic AI security, ContextGuard, HNDL, PKI migration, NIST CSF 2.0
+    </div>
+  </div>
+</section>
+
+<section id="framework">
+  <div class="wrap">
+    <h2>Framework Architecture</h2>
+    <p class="section-sub">Four controls, each mapped to an MCP security layer and the RFC 9794 hybrid construct that addresses it.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Layer 1 &middot; Host Authentication</span>
+        <h3>HAF &mdash; Hybrid Authentication Floor</h3>
+        <p>Enforces a minimum PQ/T hybrid digital signature requirement (ML-DSA + ECDSA) for agent credential presentation, with Traditional-Only, Hybrid-Preferred, and Hybrid-Required enforcement tiers.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Layer 2 &middot; Transport Channel</span>
+        <h3>HKF &mdash; Hybrid KEM Floor</h3>
+        <p>Inspects TLS cipher suite negotiation for a PQ/T composite KEM (X25519+ML-KEM-768) and blocks classical-only fallback under Hybrid-Required enforcement, implementing RFC 9794 downgrade protection.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Layer 3 &middot; Server / Tool Identity</span>
+        <h3>HRS &mdash; Hybrid Readiness Score</h3>
+        <p>A 0&ndash;5 quantitative certificate chain quantum-posture metric per MCP endpoint, driving a migration priority queue rather than a binary pass/fail.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Layer 4 &middot; Tool Result Integrity</span>
+        <h3>RSP &mdash; Result Signature Policy</h3>
+        <p>Validates hybrid signatures on tool result payloads (Unsigned / Signed-Require-Traditional / Signed-Require-Hybrid), preventing AI agents from acting on unverified or forged results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Governance Mapping</h2>
+    <p class="section-sub">Each control maps to NIST CSF 2.0 and COBIT 2019, enabling direct integration into existing enterprise audit and governance structures.</p>
+    <table>
+      <tr><th>Control</th><th>NIST CSF 2.0</th><th>COBIT 2019</th></tr>
+      <tr><td>HAF &mdash; Agent Identity</td><td>GV.PO-01, PR.AA-01</td><td>APO12.02, DSS05.04</td></tr>
+      <tr><td>HKF &mdash; Transport</td><td>PR.DS-02, PR.DS-10</td><td>DSS05.03, BAI10.01</td></tr>
+      <tr><td>HRS &mdash; Certificate</td><td>DE.CM-01, GV.RM-04</td><td>APO12.06, BAI10.03</td></tr>
+      <tr><td>RSP &mdash; Result Provenance</td><td>DE.CM-06, RS.AN-03</td><td>DSS05.07, APO12.04</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Repository Contents</h2>
+    <p class="section-sub">Open-source implementation artifacts: PoC demonstrations, benchmarks, and risk scoring. No manuscript files are hosted in this repository.</p>
+    <pre><code>contextguard-mcp-pqc/
+├── poc/
+│   ├── hndl_demo.py          Harvest-Now-Decrypt-Later threat simulation
+│   └── downgrade_demo.py     TLS cipher suite downgrade attack demo
+├── benchmarks/
+│   └── pqc_bench.py          ML-KEM / ML-DSA performance benchmarks
+├── risk/
+│   ├── risk_assessment.py    Quantitative vulnerability risk scoring
+│   └── risk_report.json      Scored output (V1-V4 vulnerability classes)
+├── framework/
+│   ├── haf.py                Hybrid Authentication Floor
+│   └── hrs.py                Hybrid Readiness Score calculator
+├── audit_docx.py             IEEE manuscript layout/style QA tool
+├── CITATION.cff
+├── LICENSE
+└── README.md</code></pre>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Authors</h2>
+    <div class="authors">
+      <div class="author-chip"><span class="name">Sunil Gentyala</span><span class="affil">Independent Researcher / HCLTech America Inc., Dallas TX, USA &middot; IEEE Senior Member</span></div>
+      <div class="author-chip"><span class="name">P. Krishna Sunil</span><span class="affil">Narasaraopeta Engineering College, India</span></div>
+      <div class="author-chip"><span class="name">Vamshi Lande</span><span class="affil">University of North Texas, Denton TX, USA</span></div>
+      <div class="author-chip"><span class="name">Akhila Kasturi</span><span class="affil">HCLTech, Dallas TX, USA</span></div>
+      <div class="author-chip"><span class="name">Suresh Kumar Darisi</span><span class="affil">Rocket Software Inc., Boston, USA</span></div>
+      <div class="author-chip"><span class="name">Ruhisulthana Shaik</span><span class="affil">Sir C.R. Reddy Polytechnic College, Eluru, India</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="citation">
+  <div class="wrap">
+    <h2>Citation</h2>
+    <p class="section-sub">Formal IEEE Xplore citation and DOI will be added once the paper is indexed. Cite the software / preprint using the entry below until then.</p>
+    <pre><code>@inproceedings{gentyala2026contextguard_pqc,
+  title     = {Post-Quantum Security Framework for Model Context Protocol Using ContextGuard},
+  author    = {Gentyala, Sunil and Krishna Sunil, P. and Lande, Vamshi
+               and Kasturi, Akhila and Darisi, Suresh Kumar and Shaik, Ruhisulthana},
+  booktitle = {Proceedings of the International Conference on Smart Computing
+               and Systems Applications (ICSCSA)},
+  year      = {2026},
+  note      = {Paper ICSCSA-011. Accepted; pending IEEE Xplore indexing.},
+  url       = {https://github.com/sunilgentyala/contextguard-mcp-pqc}
+}</code></pre>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    ContextGuard-MCP-PQC &middot; MIT License &middot; <a href="https://github.com/sunilgentyala/contextguard-mcp-pqc">GitHub</a> &middot; <a href="https://github.com/sunilgentyala">@sunilgentyala</a>
+  </div>
+</footer>
+
+</body>
+</html>
