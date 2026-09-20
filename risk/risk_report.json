@@ -1,0 +1,84 @@
+{
+  "framework": "ContextGuard-MCP-PQC",
+  "paper": "ICSCSA 2026",
+  "assessment_year": 2026,
+  "methodology": "CVSS-inspired multi-dimensional scoring with HNDL adjustment",
+  "vulnerabilities": [
+    {
+      "name": "V1: Absent Hybrid KEM in Transport",
+      "mcp_layer": "Layer 2: Transport Channel",
+      "rfc9794_construct": "PQ/T Composite KEM",
+      "exploitability": 4.0,
+      "attack_vector_weight": 2.0,
+      "crqc_dependency": 0.7,
+      "hndl_adjusted_crqc_factor": 0.3,
+      "sensitivity": 5.0,
+      "mitigation_gap": 4.5,
+      "raw_score": 163.8,
+      "normalized_score": 10.0,
+      "risk_level": "CRITICAL",
+      "contextguard_control": "HKF (Hybrid KEM Floor)",
+      "affected_assets": [
+        "Session key material",
+        "Tool invocation payloads"
+      ]
+    },
+    {
+      "name": "V2: Single-Algorithm Server Identity",
+      "mcp_layer": "Layer 3: Server/Tool Identity",
+      "rfc9794_construct": "PQ/T Parallel PKI",
+      "exploitability": 3.5,
+      "attack_vector_weight": 2.0,
+      "crqc_dependency": 0.9,
+      "hndl_adjusted_crqc_factor": 0.5,
+      "sensitivity": 4.5,
+      "mitigation_gap": 4.0,
+      "raw_score": 107.1,
+      "normalized_score": 10.0,
+      "risk_level": "CRITICAL",
+      "contextguard_control": "HRS (Hybrid Readiness Score)",
+      "affected_assets": [
+        "Server certificates",
+        "Agent identity tokens"
+      ]
+    },
+    {
+      "name": "V3: No Hybrid Host Authentication Floor",
+      "mcp_layer": "Layer 1: Host Authentication",
+      "rfc9794_construct": "PQ/T Hybrid Digital Signature",
+      "exploitability": 3.0,
+      "attack_vector_weight": 2.0,
+      "crqc_dependency": 0.8,
+      "hndl_adjusted_crqc_factor": 0.4,
+      "sensitivity": 4.5,
+      "mitigation_gap": 5.0,
+      "raw_score": 118.8,
+      "normalized_score": 10.0,
+      "risk_level": "CRITICAL",
+      "contextguard_control": "HAF (Hybrid Authentication Floor)",
+      "affected_assets": [
+        "Agent identity tokens",
+        "OAuth assertions"
+      ]
+    },
+    {
+      "name": "V4: Unsigned Tool Results",
+      "mcp_layer": "Layer 4: Tool Result Integrity",
+      "rfc9794_construct": "PQ/T Hybrid Digital Signature (result)",
+      "exploitability": 3.5,
+      "attack_vector_weight": 1.5,
+      "crqc_dependency": 0.6,
+      "hndl_adjusted_crqc_factor": 0.2,
+      "sensitivity": 4.0,
+      "mitigation_gap": 5.0,
+      "raw_score": 98.7,
+      "normalized_score": 9.87,
+      "risk_level": "CRITICAL",
+      "contextguard_control": "RSP (Result Signature Policy)",
+      "affected_assets": [
+        "Tool result contents",
+        "AI agent decision inputs"
+      ]
+    }
+  ]
+}

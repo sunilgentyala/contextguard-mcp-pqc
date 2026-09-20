@@ -1,0 +1,14 @@
+# Never track manuscript content or generator scripts that embed paper text
+*.docx
+*.pdf
+*.tex
+*.cls
+*.sty
+paper/
+generate_*manuscript*.py
+generate_from_template.py
+generate_ieee_manuscript.py
+
+__pycache__/
+*.pyc
+.DS_Store
