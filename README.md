@@ -24,7 +24,7 @@ Implementation artifacts for the ICSCSA 2026 paper presenting the first systemat
 5. Suresh Kumar Darisi -- Senior Systems Engineer, Rocket Software Inc., Boston, USA
 6. Ruhisulthana Shaik -- Lecturer, Dept. of ECE, Sir C.R. Reddy Polytechnic College, Eluru, India
 
-**Conference:** International Conference on Smart Computing and Systems Applications (ICSCSA) 2026 (Aug 19-21, 2026) -- accepted, paper ICSCSA-011. Pending IEEE Xplore indexing.
+**Conference:** 2026 6th International Conference on Soft Computing for Security Applications (ICSCSA), Aug 19-21, 2026. Accepted, paper ICSCSA-011; IEEE Xplore DOI pending.
 
 ---
 
@@ -148,10 +148,11 @@ Issues and pull requests are welcome — new vulnerability classes, live benchma
   title     = {Post-Quantum Security Framework for Model Context Protocol Using ContextGuard},
   author    = {Gentyala, Sunil and Krishna Sunil, P. and Lande, Vamshi
                and Kasturi, Akhila and Darisi, Suresh Kumar and Shaik, Ruhisulthana},
-  booktitle = {Proceedings of the International Conference on Smart Computing
-               and Systems Applications (ICSCSA)},
+  booktitle = {2026 6th International Conference on Soft Computing for
+               Security Applications (ICSCSA)},
+  publisher = {IEEE},
   year      = {2026},
-  note      = {Paper ICSCSA-011. Accepted; pending IEEE Xplore indexing.},
+  note      = {Paper ICSCSA-011. Accepted; IEEE Xplore DOI pending.},
   url       = {https://github.com/sunilgentyala/contextguard-mcp-pqc}
 }
 ```
