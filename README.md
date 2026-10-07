@@ -24,7 +24,7 @@ Implementation artifacts for the ICSCSA 2026 paper presenting the first systemat
 5. Suresh Kumar Darisi -- Senior Systems Engineer, Rocket Software Inc., Boston, USA
 6. Ruhisulthana Shaik -- Lecturer, Dept. of ECE, Sir C.R. Reddy Polytechnic College, Eluru, India
 
-**Conference:** 2026 6th International Conference on Soft Computing for Security Applications (ICSCSA), Aug 19-21, 2026. Accepted, paper ICSCSA-011; IEEE Xplore DOI pending.
+**Conference:** 2026 6th International Conference on Soft Computing for Security Applications (ICSCSA), Aug 19-21, 2026. Published, paper ICSCSA-011; [IEEE Xplore](https://ieeexplore.ieee.org/document/11708388), DOI 10.1109/ICSCSA69367.2026.11708388.
 
 ---
 
@@ -152,8 +152,9 @@ Issues and pull requests are welcome — new vulnerability classes, live benchma
                Security Applications (ICSCSA)},
   publisher = {IEEE},
   year      = {2026},
-  note      = {Paper ICSCSA-011. Accepted; IEEE Xplore DOI pending.},
-  url       = {https://github.com/sunilgentyala/contextguard-mcp-pqc}
+  note      = {Paper ICSCSA-011},
+  doi       = {10.1109/ICSCSA69367.2026.11708388},
+  url       = {https://ieeexplore.ieee.org/document/11708388}
 }
 ```
 
